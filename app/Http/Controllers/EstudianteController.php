@@ -15,7 +15,7 @@ class EstudianteController extends Controller
     }
 
     //FORMULARIO CREAR ESTUDIANTES
-    public function Estudianteform(){
+    public function estudiform(){
         return view('Estudiante.Estudianteform');
     }
 
@@ -44,6 +44,10 @@ class EstudianteController extends Controller
         Estudiante::where('id','=', $id)->update($datosestudiante);
         return back() ->with('estudiantemodificado', 'Estudiante modificado con exito');
     }
-
+//ELIMINAR ESTUDIANTES
+    public function delete($id){
+        Estudiante::destroy($id);
+        return back() ->with('estudianteguardado', 'Estudiante guardado con exito');
+    }
 
 }

@@ -13,7 +13,7 @@
                         <th scope="col">EMAIL</th>
                         <th scope="col">DIRECCION</th>
                         <th scope="col">EDAD</th>
-
+                        <th scope="col">ACCIONES</th>
                     </tr>
                     </thead>
 
@@ -25,7 +25,19 @@
                             <td class=" border px-4 py-2">{{$estudiante->email}}</td>
                             <td class=" border px-4 py-2">{{$estudiante->direccion}}</td>
                             <td class=" border px-4 py-2">{{$estudiante->edad}}</td>
-
+                            <td class=" border px-4 py-2">
+                                <div class="btn-group flex justify-center  text-lg">
+                                    <a href="{{ route('modificar',$estudiante->id)}}" class=" mr-2 btn btn-success">
+                                        <i class="fas fa-pencil-alt"></i>
+                                    </a>
+                                    <form action="{{ route('delete',$estudiante->id)}}" method="POST">
+                                        @csrf @method('DELETE')
+                                        <button type="submit" onclick="return confirm('Eliminar registro de estudiante');" class=" btn btn-danger" >
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </td>
                         </tr>
                     @endforeach
                     </tbody>

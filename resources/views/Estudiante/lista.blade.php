@@ -13,6 +13,7 @@
                         <th scope="col">EMAIL</th>
                         <th scope="col">DIRECCION</th>
                         <th scope="col">EDAD</th>
+
                     </tr>
                     </thead>
 

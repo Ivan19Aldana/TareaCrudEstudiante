@@ -18,13 +18,13 @@ class EstudianteSeeder extends Seeder
         DB::table('Estudiante')->insert([
             'id'=> '01',
             'nombre' => 'Irma Cabrera',
-            'email' => 'Irmamarin@gmail,com',
+            'email' => 'Irmamarin@gmail.com',
             'edad' => '49',
             'direccion' => 'Barrio el Estrecho',
         ]);
         DB::table('Estudiante')->insert([
             'id'=> '02',
-            'nombre' => 'Douglas Portillo',
+            'nombre' => 'Douglas Portillo Morales',
             'email' => 'DouglasP@gmail.com',
             'edad' => '35',
             'direccion' => '17 Calle, 10 Avenida',

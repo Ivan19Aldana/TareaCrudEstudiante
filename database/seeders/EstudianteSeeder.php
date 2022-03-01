@@ -15,7 +15,7 @@ class EstudianteSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('Estudiante')->insert([
+       /* DB::table('Estudiante')->insert([
             'id'=> '01',
             'nombre' => 'Irma Cabrera',
             'email' => 'Irmamarin@gmail.com',
@@ -28,6 +28,8 @@ class EstudianteSeeder extends Seeder
             'email' => 'DouglasP@gmail.com',
             'edad' => '35',
             'direccion' => '17 Calle, 10 Avenida',
-        ]);
+        ]);*/
+
+        Estudiante::factory(1000)->create();
     }
 }

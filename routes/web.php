@@ -21,3 +21,9 @@ route::get("/GUARDAR",[\App\Http\Controllers\Estudiantecontroller::class,'save']
 route::delete("/delete/{id}",[\App\Http\Controllers\Estudiantecontroller::class,'delete'])->name('delete');
 route::get("/EDITAR/{id}",[\App\Http\Controllers\Estudiantecontroller::class,'modificar'])->name('modificar');
 route::get("/edita/{id}",[\App\Http\Controllers\Estudiantecontroller::class,'edit'])->name('edit');
+
+//rutas de jornadas
+route::get("/LISTADO_JORNADA",[\App\Http\Controllers\JornadaController::class,'listado']);
+route::delete("/delete_jornada/{id}",[\App\Http\Controllers\JornadaController::class,'delete'])->name('delete_jornada');
+route::get("/CREAR_JORNADA",[\App\Http\Controllers\JornadaController::class,'gradoform']);
+route::get("/GUARDAR_JORNADA",[\App\Http\Controllers\JornadaController::class,'save'])->name("save_jornada");

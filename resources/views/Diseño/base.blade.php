@@ -23,6 +23,11 @@
         INSCRIBIR ESTUDIANTE
     </a>
 
+    <a class="navbar-brand float-left" href="{{url('/LISTADO_JORNADA')}}">
+        LISTA JORNADA
+    </a>
+
+
 
 
 

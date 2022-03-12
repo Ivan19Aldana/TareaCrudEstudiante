@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Jornada;
+use Illuminate\Support\Facades\DB;
 use App\Models\Estudiante;
 use Illuminate\Http\Request;
 
@@ -10,13 +11,19 @@ class EstudianteController extends Controller
 {
     //LISTADO DE ESTUDIANTES
     public function listado(){
-        $data['estudiantes']=Estudiante::paginate(100);
-        return view('Estudiante.lista',$data);
+
+        $estudiantes = DB::table('estudiante')
+            ->join('jornada', 'estudiante.idjornada', '=', 'jornada.idjornada')
+            ->select('estudiante.*', 'jornada.descripcion')
+            ->paginate(10);
+
+        return view('Estudiante.lista', compact('estudiantes'));
     }
 
     //FORMULARIO CREAR ESTUDIANTES
     public function estudiform(){
-        return view('Estudiante.Estudianteform');
+        $jornada= Jornada::all();
+        return view('Estudiante.Estudianteform',compact('jornada'));
     }
 
     //GUARDAR NUEVO ESTUDIANTES
@@ -25,16 +32,25 @@ class EstudianteController extends Controller
             'nombre'=>'required',
             'email'=>'required|email|unique:Estudiante',
             'edad'=>'required',
-            'direccion'=>'required'
+            'direccion'=>'required',
+              'idjornada'=>'required',
         ]);
-        $userdata = request()->except('_token');
-        Estudiante::insert($userdata);
+
+        Estudiante::create([
+            'nombre' =>$validator['nombre'],
+            'email'=>$validator['email'],
+            'edad'=>$validator['edad'],
+            'direccion'=>$validator['direccion'],
+            'idjornada'=>$validator['idjornada'],
+        ]);
+
         return back() ->with('estudianteguardado', 'Estudiante guardado con exito');
     }
 
     //FORMULARIO PARA EDITAR ESTUDIANTES
     public function modificar($id){
         $estudiante=Estudiante::findorfail($id);
+        $jornada= Jornada::all();
         return view('Estudiante.editform', compact('estudiante'));
     }
 

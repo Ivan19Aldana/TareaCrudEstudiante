@@ -50,6 +50,21 @@
                             </div>
                             </div>
 
+                            <div class="form-row col-md-12">
+
+                                <div class="form-group col-md-6 font-italic">
+                                    <label for="">Jornada</label>
+                                    <select name="idjornada" class="form-control border border-success">
+                                        <option value="" >Seleccione Jornada...</option>
+                                        @foreach( $jornada as $jornadas)
+                                            <option value="{{$jornadas->idjornada}}"> {{$jornadas->descripcion}}  </option>
+                                        @endforeach
+                                    </select>
+
+                                </div>
+
+                            </div>
+
                             <div class="row form-group justify-content-center">
                                 <button type="submit" class="btn btn-primary col-md-4 mt-3 mr-2 offset">INSCRIBIR</button>
                                 <a type="button " href="{{ url('/')}}" class="btn btn-danger col-md-4 mt-3 offset float-right">CANCELAR </a>

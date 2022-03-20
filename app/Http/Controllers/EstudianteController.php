@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Jornada;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use App\Models\Estudiante;
 use Illuminate\Http\Request;
 
@@ -11,13 +12,17 @@ class EstudianteController extends Controller
 {
     //LISTADO DE ESTUDIANTES
     public function listado(){
-
+        try {
         $estudiantes = DB::table('estudiante')
             ->join('jornada', 'estudiante.idjornada', '=', 'jornada.idjornada')
             ->select('estudiante.*', 'jornada.descripcion')
             ->paginate(10);
 
-        return view('Estudiante.lista', compact('estudiantes'));
+        return view('Estudiante.listak', compact('estudiantes'));
+        } catch (\Exception $es) {
+            log::debug($es->getMessage());
+            return view('Errors.errorvista');
+        }
     }
 
     //FORMULARIO CREAR ESTUDIANTES
@@ -28,12 +33,14 @@ class EstudianteController extends Controller
 
     //GUARDAR NUEVO ESTUDIANTES
     public function save(Request $request){
+
         $validator=$this->validate($request,[
             'nombre'=>'required',
             'email'=>'required|email|unique:Estudiante',
             'edad'=>'required',
             'direccion'=>'required',
               'idjornada'=>'required',
+
         ]);
 
         Estudiante::create([

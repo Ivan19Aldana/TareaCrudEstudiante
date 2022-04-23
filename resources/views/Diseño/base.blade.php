@@ -16,15 +16,15 @@
 <!-- Image and text-->
 <nav class="navbar navbar-light bg-primary">
     <a class="navbar-brand"  href="{{url('/LISTADO')}}">
-        LISTA DE ESTUDIANTES
+        <i class="fas fa-table"></i> LISTA DE ESTUDIANTES
     </a>
 
     <a class="navbar-brand float-left" href="{{url('/CREAR')}}">
-        INSCRIBIR ESTUDIANTE
+        <i class="fas fa-user-edit"></i> INSCRIBIR ESTUDIANTE
     </a>
 
     <a class="navbar-brand float-left" href="{{url('/LISTADO_JORNADA')}}">
-        LISTA JORNADA
+        <i class="fas fa-calendar-check"></i> LISTA JORNADA
     </a>
 
 

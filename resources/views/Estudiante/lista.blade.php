@@ -4,7 +4,7 @@
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-10">
-                <h2 class="text-center mb-5"> LISTADO DE ESTUDIANTES INSCRITOS </h2>
+                <h2 class="text-center mb-5"> <i class="fas fa-user-graduate"></i> LISTADO DE ESTUDIANTES INSCRITOS </h2>
 
                 <table class="table table-bordered table-strpied text-center">
                     <thead class="thead-light">

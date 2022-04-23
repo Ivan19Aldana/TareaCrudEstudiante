@@ -32,9 +32,9 @@
                                     <a href="{{ route('modificar',$estudiante->id)}}" class=" mr-2 btn btn-success">
                                         <i class="fas fa-pencil-alt"></i>
                                     </a>
-                                    <form action="{{ route('delete',$estudiante->id)}}" method="POST">
+                                    <form action="{{ route('delete',$estudiante->id)}}" id="{{$estudiante->id}}"method="POST">
                                         @csrf @method('DELETE')
-                                        <button type="submit" onclick="return confirm('Eliminar registro de estudiante');" class=" btn btn-danger" >
+                                        <button type="button" onclick="borrar_registro({{$estudiante->id}})" class=" btn btn-danger" >
                                             <i class="fas fa-trash-alt"></i>
                                         </button>
                                     </form>
@@ -50,4 +50,28 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('candyalert')
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function borrar_registro(Estudiante){
+            Swal.fire({
+                title: 'Se eliminará al estudiante!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si, Eliminar!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById(Estudiante).submit()
+                    Swal.fire(
+                        'Eliminado con exito!',
+                        'success'
+                    )
+                }
+            })
+        }
+    </script>
 @endsection

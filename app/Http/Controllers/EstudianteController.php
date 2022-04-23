@@ -18,12 +18,16 @@ class EstudianteController extends Controller
             ->select('estudiante.*', 'jornada.descripcion')
             ->paginate(10);
 
-        return view('Estudiante.listak', compact('estudiantes'));
+        return view('Estudiante.lista', compact('estudiantes'));
         } catch (\Exception $es) {
-            log::debug($es->getMessage());
-            return view('Errors.errorvista');
+            $message=$es->getMessage();
+            $tipoError=" Excepción General de Vista ";
+            return view('Errors.errorvista', compact('message', 'tipoError'));
         }
+
     }
+
+
 
     //FORMULARIO CREAR ESTUDIANTES
     public function estudiform(){
@@ -40,6 +44,13 @@ class EstudianteController extends Controller
             'edad'=>'required',
             'direccion'=>'required',
               'idjornada'=>'required',
+
+        ],[
+            'nombre.required' => 'No olvides llenar este campo',
+            'email.required' => 'No olvides llenar este campo',
+            'edad.required' => 'No olvides llenar este campo',
+            'direccion.required' => 'No olvides llenar este cmapo',
+            'idjornada.required' => 'No olvides llenar este campo',
 
         ]);
 

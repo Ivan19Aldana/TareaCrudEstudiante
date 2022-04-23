@@ -55,7 +55,7 @@
 @section('candyalert')
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-        function borrar_registro(Estudiante){
+        function borrar_registro(registro){
             Swal.fire({
                 title: 'Se eliminará al estudiante!',
                 icon: 'warning',
@@ -65,7 +65,7 @@
                 confirmButtonText: 'Si, Eliminar!'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    document.getElementById(Estudiante).submit()
+                    document.getElementById(registro).submit()
                     Swal.fire(
                         'Eliminado con exito!',
                         'success'

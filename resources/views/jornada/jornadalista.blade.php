@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <h2 class="text-center mb-5"> LISTADO DE JORNADAS </h2>
-                <a type="button " href="{{ url('/CREAR_JORNADA')}}" class="btn btn-success mb-3 mt-3 mr-2 md-3 offset float-left">NUEVO </a>
+                <a type="button " href="{{ url('/CREAR_JORNADA')}}" class="btn btn-success mb-3 mt-3 mr-2 md-3 offset float-left"><i class="fas fa-plus"></i> NUEVO </a>
                 <table class="table table-bordered table-strpied text-center">
                     <thead class="thead-light">
                     <tr>

@@ -66,8 +66,8 @@
                             </div>
 
                             <div class="row form-group justify-content-center">
-                                <button type="submit" class="btn btn-primary col-md-4 mt-3 mr-2 offset">INSCRIBIR</button>
-                                <a type="button " href="{{ url('/')}}" class="btn btn-danger col-md-4 mt-3 offset float-right">CANCELAR </a>
+                                <button type="submit" class="btn btn-primary col-md-4 mt-3 mr-2 offset"><i class="fas fa-save"></i> INSCRIBIR</button>
+                                <a type="button " href="{{ url('/')}}" class="btn btn-danger col-md-4 mt-3 offset float-right"><i class="fas fa-ban"></i> CANCELAR </a>
                             </div>
                         </div>
 
